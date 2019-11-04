@@ -69,3 +69,6 @@ package.json
 package-lock.json
 slate.config.js
 yarn.lock
+
+
+dist/
