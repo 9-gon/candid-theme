@@ -1,0 +1,10 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Candid",
+    "theme_version": "0.1.0",
+    "theme_author": "Nonagon",
+    "theme_documentation_url": "https://github.com/Shopify/skeleton-theme",
+    "theme_support_url": "https://github.com/Shopify/skeleton-theme/issues"
+  }
+]

@@ -59,3 +59,13 @@ typings/
 
 # next.js build output
 .next
+
+.travis.yml
+.DS_Store
+.gitignore
+LICENSE.*
+*.md
+package.json
+package-lock.json
+slate.config.js
+yarn.lock
