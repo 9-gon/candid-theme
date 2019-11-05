@@ -1,14 +1,26 @@
-<section class="index-section" data-name="{{ section.settings.text__SectionName }}" id="index-section--{{ section.id }}">
-	{{ page.content }}
+{% comment %}
+	Provides a shell for each index section, including a background color/image and a name for the section.
+{% endcomment %}
+
+<section class="index-section" data-name="{{ section.settings.text__SectionName }}" data-section-id="{{ section.settings.text__SectionId }}" id="index-section--{{ section.id }}">
+	No linked Index Section Content.
 </section>
+
 
 <style>
 	section#index-section--{{ section.id }}
 	{
 		min-height: 100vh;
+		position: relative;
 		width: 100vw;
 
+		{% if section.settings.image__SectionBackground %}
+		background-image: url("{{ section.settings.image__SectionBackground | img_url:'2048x' }}");
+		background-position: center center;
+		background-size: cover;
+		{% else %}
 		background-color: {{ section.settings.color__SectionBackground }};
+		{% endif %}
 	}
 </style>
 
@@ -22,16 +34,28 @@
 	],
 	"settings": [
 		{
+			"type": "text",
+			"id": "text__SectionName",
+			"label": "Name",
+			"default": "Section"
+		},
+		{
+			"type": "text",
+			"id": "text__SectionId",
+			"label": "ID",
+			"default": "section-id",
+			"info": "This ID should be the same text as the ID in the corresponding Index Section Contents."
+		},
+		{
 			"type": "color",
 			"id": "color__SectionBackground",
 			"label": "Background Color",
 			"default": "#FFD3FF"
 		},
 		{
-			"type": "text",
-			"id": "text__SectionName",
-			"label": "Name",
-			"default": "Section"
+			"type": "image_picker",
+			"id": "image__SectionBackground",
+			"label": "Background Image"
 		}
 	]
 }

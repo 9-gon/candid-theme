@@ -1,0 +1,31 @@
+<section class="index-section-contents" data-name="{{ section.settings.text__SectionName }}" data-section-id="{{ section.settings.text__SectionId }}" id="index-section-contents--{{ section.id }}">
+	{{ section.settings.text__SectionContentTEST }} 
+</section>
+
+
+{% schema %}
+{
+	"presets": [
+		{
+			"category": "Building Blocks",
+			"name": "Index Section Contents"
+		}
+	],
+	"blocks": [],
+	"settings": [
+		{
+			"type": "text",
+			"id": "text__SectionId",
+			"label": "ID",
+			"default": "section-id",
+			"info": "This ID should be the same text as the ID in the corresponding Index Section."
+		},
+		{
+			"type": "text",
+			"id": "text__SectionContentTEST",
+			"label": "Text Content",
+			"default": "FOO"
+		}
+	]
+}
+{% endschema %}
