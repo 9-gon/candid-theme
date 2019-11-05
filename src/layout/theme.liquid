@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="{{ shop.locale }}">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="">
-  <link rel="canonical" href="{{ canonical_url }}">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="{{ settings.color__AndroidTheme }}">
+	<link rel="canonical" href="{{ canonical_url }}">
 
-  <title>{{ shop.name }}</title>
+	<title>{% if settings.check__ShowPageName and page_title != shop.name %}{{ page_title }} | {% endif %}{{ shop.name }}</title>
 
-  <meta name="description" content="">
+	<meta name="description" content="{{ shop.description }}">
 
-  {% include 'style-tags', layout: 'theme' %}
-  {% include 'script-tags', layout: 'theme' %}
+	{% include 'style-tags', layout: 'theme' %}
+	{% include 'script-tags', layout: 'theme' %}
 
-  {{ content_for_header }}
+	{{ content_for_header }}
 </head>
 
 <body>
-  {{ content_for_layout }}
+	{{ content_for_layout }}
 </body>
+
 </html>

@@ -1,10 +1,39 @@
 [
-  {
-    "name": "theme_info",
-    "theme_name": "Candid",
-    "theme_version": "0.1.0",
-    "theme_author": "Nonagon",
-    "theme_documentation_url": "https://github.com/9-gon/candid-theme",
-    "theme_support_url": "https://github.com/9-gon/candid-theme"
-  }
+	{
+		"name": "theme_info",
+		"theme_name": "Candid",
+		"theme_version": "0.1.0",
+		"theme_author": "Nonagon",
+		"theme_documentation_url": "https://github.com/9-gon/candid-theme",
+		"theme_support_url": "https://github.com/9-gon/candid-theme"
+	},
+	{
+		"name": "Browser Settings",
+		"settings": [
+			{
+				"type": "color",
+				"id": "color__AndroidTheme",
+				"label": "Browser Theme Color",
+				"info": "Sets the toolbar color on certain mobile browsers.",
+				"default": "#179E89"
+			},
+			{
+				"type": "checkbox",
+				"id": "check__ShowPageName",
+				"label": "Show Page Title?",
+				"info": "Toggles whether or not the page title should be added to the browser tab's title.",
+				"default": false
+			}
+		]
+	},
+	{
+		"name": "Navigation Menu",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "image__SiteLogo",
+				"label": "Site Logo"
+			}
+		]
+	}
 ]
