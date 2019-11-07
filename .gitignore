@@ -64,7 +64,7 @@ typings/
 .DS_Store
 .gitignore
 LICENSE.*
-*.md
+/*.md
 package.json
 package-lock.json
 slate.config.js
