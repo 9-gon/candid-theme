@@ -1,0 +1,93 @@
+<img id="navigation-menu__logo" src="{{ settings.image__SiteLogo | img_url: '1024x' }}"/>
+<ul id="navigation-menu__items">
+	{% for block in section.blocks %}
+		<a class="navigation-menu__link" href="{{ pages[ block.settings.page__PageGoTo ].url }}" id="navigation-menu__link--{{ block.id }}"><li>{{ block.settings.text__MenuItemTitle }}</li></a>
+	{% endfor %}
+</ul>
+
+<style>
+
+/* Global screen rules. */
+@media only screen
+{
+	section.navigation-menu
+	{
+		position: fixed;
+		z-index: 900;
+	}
+
+	ul#navigation-menu__items
+	{
+		list-style-type: none;
+		padding: 0 1rem;
+	}
+
+	a.navigation-menu__link
+	{
+		text-decoration: none;
+		
+		color: {{ section.settings.color__MenuColor }};
+		font-family: {{ section.settings.font__MenuFont.family }};
+	}
+		@media (min-width: 900px) { a.navigation-menu__link { font-size: 1.6rem; } }
+		@media (max-width: 899.98px) { a.navigation-menu__link { font-size: 2.2vw; } }
+}
+
+/* Desktop screen rules. */
+@media only screen and (min-width:768px)
+{
+	section.navigation-menu
+	{
+		left: 1.5vw;
+		top: 1.5rem;
+		width: 18.5vw;
+	}
+
+	img#navigation-menu__logo
+	{
+		height: auto;
+		max-width: 50vh;
+		max-width: 17vw;
+		width: auto;
+	}
+}
+
+</style>
+
+{% schema %}
+{
+	"tag": "section",
+	"class": "navigation-menu",
+	"settings": [
+		{
+			"type": "color",
+			"id": "color__MenuColor",
+			"label": "Text Color"
+		},
+		{
+			"type": "font_picker",
+			"id": "font__MenuFont",
+			"label": "Font",
+			"default": "helvetica_n4"
+		}
+	],
+	"blocks": [
+		{
+			"type": "menu_item",
+			"name": "Menu Item",
+			"settings": [
+				{
+					"type": "text",
+					"id": "text__MenuItemTitle",
+					"label": "Title"
+				},
+				{
+					"type": "page",
+					"id": "page__PageGoTo",
+					"label": "Linked Page"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

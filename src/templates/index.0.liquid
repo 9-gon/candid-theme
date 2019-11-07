@@ -1,0 +1,48 @@
+<div id="navigation-menu">
+	<img id="navigation-menu__logo" src="{{ settings.image__SiteLogo | img_url: '1024x' }}"/>
+	<ul id="navigation-menu__tags"></ul> <!-- Needs styling rules! -->
+</div>
+
+<div id="index-sections">
+	{{ content_for_index }}
+</div>
+
+<script>
+	var menuTags = document.querySelector("ul#navigation-menu__tags");
+	var indexSections = document.querySelector("div#index-sections");
+	var indexSectionContents = [];
+	var i = 0;
+
+	{% comment %}
+		Iterates over each Index Section and performs some task.
+	{% endcomment %}
+	for (let section of indexSections.querySelectorAll("section.index-section"))
+	{
+	{% comment %}
+		Reads through all Index Sections and creates a list item in the navigation menu for each of them. Does not auto-refresh when new sections are made, requires the preview to be saved before changes take effect.
+
+		Possible solution is to run this on an interval, but seeing as this only affects behavior when in Shopify's Customize Theme menu, solving this issue would likely cause more problems for the end user than simply letting it be.
+	{% endcomment %}
+		var tag = document.createElement("li");
+		var name = section.getAttribute("data-name");
+		tag.classList.add("smooth-scroll");
+		tag.classList.add("navigation-menu__tag");
+		tag.id = `navigation-menu__tag--${name}`;
+		tag.innerHTML = `*${name}`;
+		menuTags.appendChild(tag);
+		tag = null; name = null;
+
+	{% comment %}
+		Replaces the inner contents of each Index Section with its corresponding Index Section Content element.
+	{% endcomment %}
+		for (let content of indexSections.querySelectorAll("section.index-section-contents"))
+		{
+			if (content.getAttribute('data-section-id').toUpperCase()==section.getAttribute('data-section-id').toUpperCase())
+			{
+				section.innerHTML = section.innerHTML.replace("No linked Index Section Content.",content.innerHTML);
+				content.parentElement.removeChild(content);
+				break;
+			}
+		}
+	}
+</script>
